@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Sunshine ☀️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fad0ff,#c2e9fb);
+background-size:400% 400%;
+animation:bg 15s ease infinite;
+overflow-x:hidden;
+overflow-y:auto;
+position:relative;
+min-height:100vh;
+color:white;
+
+}
+
+@keyframes bg{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+.container{
+
+width:90%;
+max-width:900px;
+margin:auto;
+padding:60px 20px;
+text-align:center;
+
+}
+
+h1{
+
+font-family:Pacifico;
+font-size:60px;
+margin-bottom:20px;
+text-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+#typing{
+
+font-size:24px;
+font-weight:500;
+min-height:80px;
+
+}
+
+.card{
+
+margin-top:40px;
+padding:35px;
+border-radius:25px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+box-shadow:0 10px 40px rgba(0,0,0,.2);
+
+}
+
+button{
+
+margin:12px;
+padding:15px 28px;
+border:none;
+border-radius:50px;
+font-size:17px;
+cursor:pointer;
+transition:.3s;
+background:white;
+color:#ff4f81;
+font-weight:bold;
+
+}
+
+button:hover{
+
+transform:translateY(-5px) scale(1.05);
+
+}
+
+.message{
+
+margin-top:25px;
+font-size:22px;
+line-height:1.8;
+min-height:90px;
+
+}
+
+.quote{
+
+font-size:20px;
+margin-top:20px;
+opacity:.95;
+
+}
+
+footer{
+
+margin-top:70px;
+padding-bottom:30px;
+font-size:18px;
+
+}
+
+.heart{
+
+position:fixed;
+font-size:20px;
+animation:float linear forwards;
+pointer-events:none;
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(100vh);
+opacity:1;
+}
+
+100%{
+
+transform:translateY(-120vh);
+opacity:0;
+
+}
+
+}
+
+.confetti{
+
+position:fixed;
+width:10px;
+height:10px;
+top:-10px;
+animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(120vh) rotate(720deg);
+
+}
+
+}
+
+.hidden{
+
+opacity:0;
+transform:translateY(20px);
+transition:1s;
+
+}
+
+.show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+.reveal{
+
+transition:1s;
+
+}
+
+.reveal.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+#letterBox{
+
+margin-top:60px;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.envelope{
+
+width:320px;
+
+height:220px;
+
+position:relative;
+
+}
+
+.flap{
+
+position:absolute;
+
+width:100%;
+
+height:110px;
+
+background:#ff6f91;
+
+clip-path:polygon(0 0,100% 0,50% 100%);
+
+transform-origin:top;
+
+transition:1s;
+
+z-index:3;
+
+}
+
+.paper{
+
+position:absolute;
+
+bottom:0;
+
+left:10px;
+
+width:300px;
+
+height:190px;
+
+background:white;
+
+color:#444;
+
+padding:20px;
+
+border-radius:10px;
+
+transform:translateY(80px);
+
+transition:1s;
+
+overflow:auto;
+
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.paper h2{
+
+color:#ff4f81;
+
+margin-bottom:10px;
+
+}
+
+.paper p{
+
+line-height:1.8;
+
+font-size:15px;
+
+}
+
+.open .flap{
+
+transform:rotateX(180deg);
+
+}
+
+.open .paper{
+
+transform:translateY(-60px);
+
+}
+
+#smileBox{
+
+margin-top:50px;
+
+padding:30px;
+
+background:rgba(255,255,255,.15);
+
+border-radius:20px;
+
+backdrop-filter:blur(10px);
+
+}
+
+#smileBox h2{
+
+margin-bottom:20px;
+
+}
+
+#smileText{
+
+font-size:22px;
+
+line-height:1.8;
+
+min-height:80px;
+
+transition:.5s;
+
+}
+
+#starSection{
+
+margin-top:60px;
+
+padding:30px;
+
+background:rgba(255,255,255,.12);
+
+border-radius:20px;
+
+}
+
+#sky{
+
+margin-top:25px;
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+}
+
+.star{
+
+font-size:40px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.star:hover{
+
+transform:scale(1.3);
+
+}
+
+.sparkle{
+
+animation:sparkle .8s;
+
+}
+
+@keyframes sparkle{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.8) rotate(20deg);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+#wishMessage{
+
+margin-top:25px;
+
+font-size:22px;
+
+min-height:60px;
+
+}
+
+#memoryBook{
+
+margin-top:70px;
+
+padding:35px;
+
+background:rgba(255,255,255,.18);
+
+border-radius:25px;
+
+backdrop-filter:blur(15px);
+
+box-shadow:0 10px 35px rgba(0,0,0,.2);
+
+}
+
+#memoryBook h2{
+
+margin-bottom:20px;
+
+}
+
+#bookPage{
+
+background:white;
+
+color:#444;
+
+padding:35px;
+
+border-radius:20px;
+
+min-height:180px;
+
+font-size:22px;
+
+line-height:1.8;
+
+transition:.5s;
+
+margin-bottom:20px;
+
+}
+
+#endingMessage{
+
+margin-top:80px;
+
+padding:40px;
+
+background:rgba(255,255,255,.15);
+
+border-radius:25px;
+
+backdrop-filter:blur(12px);
+
+}
+
+#endingMessage h2{
+
+margin-bottom:20px;
+
+font-size:34px;
+
+}
+
+#endingMessage p{
+
+font-size:20px;
+
+line-height:1.9;
+
+}
+
+#welcomeScreen{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0ff);
+
+z-index:9999;
+
+padding:30px;
+
+}
+
+#welcomeScreen h1{
+
+font-size:60px;
+
+margin-bottom:20px;
+
+}
+
+#welcomeScreen p{
+
+font-size:24px;
+
+max-width:700px;
+
+line-height:1.8;
+
+margin-bottom:30px;
+
+}
+
+#welcomeScreen button{
+
+font-size:20px;
+
+padding:18px 40px;
+
+}
+
+#bubbles{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:-1;
+
+}
+
+.bubble{
+
+position:absolute;
+
+bottom:-120px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(8px);
+
+animation:rise linear forwards;
+
+}
+
+@keyframes rise{
+
+0%{
+
+transform:translateY(0) scale(.4);
+
+opacity:0;
+
+}
+
+15%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) scale(1.3);
+
+opacity:0;
+
+}
+
+}
+
+.hoverCard{
+
+transition:0.4s;
+
+}
+
+.hoverCard:hover{
+
+transform:translateY(-12px) scale(1.02);
+
+box-shadow:0 25px 60px rgba(255,255,255,.35);
+
+}
+
+.hoverCard{
+
+transition:0.4s;
+
+}
+
+.hoverCard:hover{
+
+transform:translateY(-12px) scale(1.02);
+
+box-shadow:0 25px 60px rgba(255,255,255,.35);
+
+}
+
+@media (max-width:600px){
+
+.container{
+
+width:92%;
+
+padding:30px 10px;
+
+}
+
+h1{
+
+font-size:45px;
+
+}
+
+#typing{
+
+font-size:20px;
+
+}
+
+.card,
+#smileBox,
+#starSection,
+#memoryBook,
+#endingMessage{
+
+padding:25px;
+
+width:100%;
+
+}
+
+button{
+
+width:auto;
+
+padding:12px 25px;
+
+font-size:16px;
+
+}
+
+#welcomeScreen h1{
+
+font-size:45px;
+
+}
+
+#welcomeScreen p{
+
+font-size:20px;
+
+}
+
+.star{
+
+font-size:35px;
+
+}
+
+}
+
+/* Welcome screen */
+
+#welcomeScreen h1{
+
+font-size:10px;
+
+}
+
+#welcomeScreen p{
+
+font-size:32px;
+
+}
+
+
+/* Main heading */
+
+h1{
+
+font-size:32px;
+
+}
+
+
+/* Text */
+
+#typing{
+
+font-size:16px;
+
+}
+
+
+/* Cards */
+
+.card,
+#smileBox,
+#starSection,
+#memoryBook,
+#endingMessage{
+
+width:95%;
+
+margin-left:auto;
+
+margin-right:auto;
+
+padding:20px;
+
+}
+
+
+/* Buttons */
+
+button{
+
+font-size:15px;
+
+padding:12px 22px;
+
+}
+
+
+/* Letter */
+
+.envelope{
+
+width:280px;
+
+}
+
+.paper{
+
+width:260px;
+
+font-size:14px;
+
+}
+
+
+/* Stars */
+
+.star{
+
+font-size:30px;
+
+}
+
+
+/* Memory book */
+
+#bookPage{
+
+font-size:18px;
+
+padding:20px;
+
+}
+
+
+/* Ending */
+
+#endingMessage h2{
+
+font-size:28px;
+
+}
+
+#endingMessage p{
+
+font-size:15px;
+
+}
+
+/* FINAL POLISH */
+
+html{
+scroll-behavior:smooth;
+}
+
+button{
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+
+.petal{
+
+position:fixed;
+
+top:-50px;
+
+font-size:25px;
+
+animation:petalFall linear forwards;
+
+pointer-events:none;
+
+z-index:10;
+
+}
+
+
+@keyframes petalFall{
+
+0%{
+
+transform:translateY(-50px) rotate(0deg);
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(720deg);
+
+}
+
+}
+
+
+.glow{
+
+animation:glowStar 1s;
+
+}
+
+
+@keyframes glowStar{
+
+50%{
+
+filter:drop-shadow(0 0 25px white);
+
+transform:scale(1.5);
+
+}
+
+}
+
+
+@media(max-width:600px){
+
+.container{
+
+padding-left:15px;
+
+padding-right:15px;
+
+}
+
+
+h1{
+
+font-size:32px;
+
+}
+
+
+#typing{
+
+font-size:17px;
+
+}
+
+
+.card,
+#smileBox,
+#starSection,
+#memoryBook,
+#endingMessage{
+
+padding:22px;
+
+}
+
+
+button{
+
+font-size:15px;
+
+padding:12px 20px;
+
+}
+
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="welcomeScreen">
+
+<h1>🌸 A Little Gift For You 🌸</h1>
+
+<p>
+
+Made with care...
+
+I hope this brings a smile to your face.
+
+</p>
+
+<button onclick="startGift()">
+
+🎁 Open Your Surprise
+
+</button>
+
+</div>
+
+<div id="bubbles"></div>
+
+<div class="container" id="mainWebsite" style="display:none;">
+
+<h1>🌸 Hey You 🌸</h1>
+
+<div id="typing"></div>
+
+<div class="card hidden hoverCard" id="mainCard">
+
+<div class="quote">
+
+You deserve more smiles than worries.
+
+</div>
+
+<div class="message" id="message">
+
+Click a button 😊
+
+</div>
+
+<button onclick="randomMessage()">
+😊 Make Me Smile
+</button>
+
+<button onclick="compliment()">
+🌸 Compliment
+</button>
+
+<button onclick="hug()">
+🤗 Virtual Hug
+</button>
+
+<button onclick="confetti()">
+🎉 Celebrate
+</button>
+
+<button onclick="openLetter()">
+💌 Open a Letter
+</button>
+
+<button onclick="newSmile()">
+🫙 Pick a Smile
+</button>
+
+</div>
+
+<div id="letterBox" class="hidden reveal">
+
+<div class="envelope">
+
+<div class="flap"></div>
+
+<div class="paper">
+
+<h2>💖 Dear You</h2>
+
+<p>
+
+If today feels a little heavy,
+
+I hope this tiny corner of the internet reminds you that you deserve happiness, peace, laughter, and countless reasons to smile.
+
+You don't have to be perfect.
+
+Just keep being yourself.
+
+The world is brighter because you're in it.
+
+🌸
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="smileBox" class="hidden reveal hoverCard">
+
+<h2>🫙 Jar of Smiles</h2>
+
+<div id="smileText">
+
+Click "Pick a Smile" 😊
+
+</div>
+
+</div>
+
+<div id="starSection" class="hidden reveal hoverCard">
+
+<h2>⭐ Make a Wish</h2>
+
+<p>Click any star...</p>
+
+<div id="sky">
+
+<span class="star" onclick="wish(this)">⭐</span>
+<span class="star" onclick="wish(this)">⭐</span>
+<span class="star" onclick="wish(this)">⭐</span>
+<span class="star" onclick="wish(this)">⭐</span>
+<span class="star" onclick="wish(this)">⭐</span>
+<span class="star" onclick="wish(this)">⭐</span>
+<span class="star" onclick="wish(this)">⭐</span>
+<span class="star" onclick="wish(this)">⭐</span>
+
+</div>
+
+<div id="wishMessage">
+
+✨
+
+</div>
+
+</div>
+
+<footer class="hidden" id="footer">
+
+Sometimes life becomes heavy...
+
+I just wanted to leave a little sunshine here for you.
+
+No expectations.
+
+No pressure.
+
+Just a smile.
+
+💖
+
+<div id="memoryBook" class="hoverCard">
+
+<h2>📖 A Little Memory Book</h2>
+
+<div id="bookPage">
+
+Welcome to this little book. ❤️
+
+</div>
+
+<button onclick="nextPage()">
+
+➡️ Next Page
+
+</button>
+
+</div>
+
+<div id="endingMessage" class="hoverCard">
+
+<h2>❤️ One Last Thing...</h2>
+
+<p>
+
+Thank you for spending a few moments here.
+
+If this page made you smile even once...
+
+then it has done exactly what it was made to do.
+
+Keep smiling.
+
+The world looks better when you do.
+
+🌸✨
+
+</p>
+
+</div>
+
+</footer>
+
+</div>
+
+<script>
+
+const text="I don't know how today has been for you... but if you're here, I hope the next few minutes make you smile a little. 🌸";
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,40);
+
+}else{
+
+document.getElementById("mainCard").classList.add("show");
+
+setTimeout(()=>{
+
+document.getElementById("footer").classList.add("show");
+
+},500);
+
+}
+
+}
+
+type();
+
+const messages=[
+
+"Your smile has a way of making ordinary days feel brighter. ☀️",
+
+"If today wasn't perfect, tomorrow gets another chance. 🌈",
+
+"You are stronger than you think and kinder than you realize. 💖",
+
+"The world is a little nicer because you're in it. 🌸",
+
+"I hope something unexpectedly wonderful happens to you today. ✨",
+
+"Even flowers would be jealous of your smile. 🌺",
+
+"If happiness had a favorite person... it would probably choose you. 😊",
+
+"You deserve peace, laughter, and lots of ice cream. 🍦"
+
+];
+
+const compliments=[
+
+"You're genuinely beautiful inside and out. ❤️",
+
+"Your kindness is unforgettable.",
+
+"You make people feel comfortable.",
+
+"You have an amazing heart.",
+
+"Your laugh deserves its own fan club.",
+
+"You bring warmth wherever you go.",
+
+"You matter more than you know."
+
+];
+
+function randomMessage(){
+
+document.getElementById("message").innerHTML=
+
+messages[Math.floor(Math.random()*messages.length)];
+
+}
+
+function compliment(){
+
+document.getElementById("message").innerHTML=
+
+compliments[Math.floor(Math.random()*compliments.length)];
+
+}
+
+function hug(){
+
+document.getElementById("message").innerHTML=
+
+"Sending you the biggest virtual hug imaginable 🤗💖";
+
+}
+
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=Math.random()>0.5?"💖":"✨";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(4+Math.random()*5)+"s";
+
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),9000);
+
+},350);
+
+function confetti(){
+
+for(let i=0;i<160;i++){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.background=`hsl(${Math.random()*360},100%,60%)`;
+
+c.style.animationDuration=(2+Math.random()*3)+"s";
+
+document.body.appendChild(c);
+
+setTimeout(()=>c.remove(),5000);
+
+}
+
+}
+
+function openLetter(){
+
+document.querySelector(".envelope").classList.toggle("open");
+
+document.getElementById("letterBox").classList.add("show");
+
+}
+
+const smiles=[
+
+"🌸 You make ordinary moments feel special.",
+
+"☀️ Someone out there is grateful they met you.",
+
+"💖 Your smile can brighten even a cloudy day.",
+
+"🌈 You deserve happiness without needing a reason.",
+
+"✨ Never forget how amazing you truly are.",
+
+"🌺 Your kindness leaves a mark on people's hearts.",
+
+"😊 You are enough, exactly as you are.",
+
+"🌻 I hope today surprises you with something beautiful.",
+
+"💫 The world feels warmer because you're in it.",
+
+"🍀 May your heart stay light and your smile stay bright."
+
+];
+
+function newSmile(){
+
+let box=document.getElementById("smileText");
+
+box.style.opacity=0;
+
+setTimeout(()=>{
+
+box.innerHTML=smiles[Math.floor(Math.random()*smiles.length)];
+
+box.style.opacity=1;
+
+},300);
+
+}
+
+const wishes=[
+
+"🌸 May your heart always find peace.",
+
+"☀️ May tomorrow bring you beautiful surprises.",
+
+"💖 May your smile never fade.",
+
+"🌈 May happiness always find its way to you.",
+
+"✨ You deserve every beautiful thing life offers.",
+
+"🦋 Keep shining. The world needs your light.",
+
+"🌺 Your dreams are worth believing in.",
+
+"😊 I hope today leaves you with one unforgettable smile."
+
+];
+
+function wish(star){
+
+star.classList.add("sparkle");
+
+document.getElementById("wishMessage").innerHTML=
+
+wishes[Math.floor(Math.random()*wishes.length)];
+
+setTimeout(()=>{
+
+star.classList.remove("sparkle");
+
+},800);
+
+}
+
+const sections=document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll",function(){
+
+sections.forEach(function(section){
+
+const top=section.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+
+section.classList.add("show");
+
+}
+
+});
+
+});
+
+const pages=[
+
+"❤️ Thank you for opening this little book.",
+
+"🌸 I hope today gives you at least one reason to smile.",
+
+"☀️ Never forget how wonderful you truly are.",
+
+"🌈 Even on difficult days, you deserve kindness.",
+
+"🦋 Keep believing in yourself. You're stronger than you think.",
+
+"💖 If this page made you smile even a little... then it was worth making."
+
+];
+
+let page=0;
+
+function nextPage(){
+
+page++;
+
+if(page>=pages.length){
+
+page=0;
+
+}
+
+let book=document.getElementById("bookPage");
+
+book.style.opacity=0;
+
+setTimeout(function(){
+
+book.innerHTML=pages[page];
+
+book.style.opacity=1;
+
+},300);
+
+}
+
+function startGift(){
+
+document.getElementById("welcomeScreen").style.display="none";
+
+document.getElementById("mainWebsite").style.display="block";
+
+}
+
+setInterval(function(){
+
+let bubble=document.createElement("div");
+
+bubble.className="bubble";
+
+let size=Math.random()*80+20;
+
+bubble.style.width=size+"px";
+
+bubble.style.height=size+"px";
+
+bubble.style.left=Math.random()*100+"vw";
+
+bubble.style.animationDuration=(8+Math.random()*8)+"s";
+
+document.getElementById("bubbles").appendChild(bubble);
+
+setTimeout(function(){
+
+bubble.remove();
+
+},17000);
+
+},500);
+
+// FLOWER PETALS
+
+setInterval(()=>{
+
+let petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML=["🌸","🌺","✨","💮"][Math.floor(Math.random()*4)];
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.animationDuration=(5+Math.random()*5)+"s";
+
+petal.style.fontSize=(15+Math.random()*20)+"px";
+
+
+document.body.appendChild(petal);
+
+
+setTimeout(()=>{
+
+petal.remove();
+
+},10000);
+
+
+},600);
+
+
+// STAR GLOW
+
+document.querySelectorAll(".star").forEach(star=>{
+
+star.addEventListener("click",()=>{
+
+star.classList.add("glow");
+
+
+setTimeout(()=>{
+
+star.classList.remove("glow");
+
+},1000);
+
+
+});
+
+});
+
+
+</script>
+
+</body>
+</html>
